@@ -101,13 +101,13 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 210000;
+        consensus.nSubsidyHalvingInterval = 210000;//I have changed 210000 -> 2100000
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.powLimit = ~arith_uint256(0) >> 32;
-        consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-        consensus.nPowTargetSpacing = 10 * 60;
+        consensus.nPowTargetTimespan = 7 * 24 * 60 * 60; // two weeks I have changed 14 -> 7
+        consensus.nPowTargetSpacing = 5 * 60;//I have changed 10 -> 5
         consensus.fPowAllowMinDifficultyBlocks = false;
         /** 
          * The message start string is designed to be unlikely to occur in normal data.
@@ -119,7 +119,7 @@ public:
         pchMessageStart[2] = 0xb4;
         pchMessageStart[3] = 0xd9;
         vAlertPubKey = ParseHex("04fc9702847840aaf195de8442ebecedf5b095cdbb9bc716bda9110971b28a49e0ead8564ff0db22209e0374782c093bb899692d524e9d6a6956e7c5ecbcd68284");
-        nDefaultPort = 8333;
+        nDefaultPort = 3939;
         nMinerThreads = 0;
 
         /**
@@ -132,7 +132,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
          *   vMerkleTree: 4a5e1e
          */
-        const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
+        const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";//I have changed The Times 03/Jan/2009 Chancellor on brink of second bailout for banks -> The Times 09/Apr/2009 pastday started to work at motion tree Corp
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -143,9 +143,9 @@ public:
         genesis.hashPrevBlock.SetNull();
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1231006505;
+        genesis.nTime    = 1428983713;//I have changed 1231006505 -> 1428983713
         genesis.nBits    = 0x1d00ffff;
-        genesis.nNonce   = 2083236893;
+        genesis.nNonce   = 1041618446;//I have changed 2083236893 -> 1041618446
 
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"));
@@ -196,7 +196,7 @@ public:
         pchMessageStart[2] = 0x09;
         pchMessageStart[3] = 0x07;
         vAlertPubKey = ParseHex("04302390343f91cc401d56d68b123028bf52e5fca1939df127f63c6467cdf9c8e2c14b61104cf817d0b780da337893ecc4aaff1309e536162dabbdb45200ca2b0a");
-        nDefaultPort = 18333;
+        nDefaultPort = 13939;
         nMinerThreads = 0;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
